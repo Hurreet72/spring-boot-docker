@@ -1,0 +1,18 @@
+1 name: CI/CD Pipeline
+2 
+3 on:
+4   push:
+5     branches:
+6       - main
+7   workflow_dispatch:
+8 
+9 jobs:
+10   build:
+11     runs-on: ubuntu-latest
+12     
+13     steps:
+14       - name: Check out code
+15         uses: actions/checkout@v4
+16       - name: Build Docker Image
+17         run: docker build -t spring-boot-app:latest .
+18
